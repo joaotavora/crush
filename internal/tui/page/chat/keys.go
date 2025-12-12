@@ -22,8 +22,8 @@ func DefaultKeyMap() KeyMap {
 			key.WithHelp("ctrl+n", "new session"),
 		),
 		AddAttachment: key.NewBinding(
-			key.WithKeys("ctrl+f"),
-			key.WithHelp("ctrl+f", "add attachment"),
+			key.WithKeys("ctrl+shift+f"),
+			key.WithHelp("ctrl+shift+f", "add attachment"),
 		),
 		Cancel: key.NewBinding(
 			key.WithKeys("esc", "alt+esc"),
@@ -34,8 +34,8 @@ func DefaultKeyMap() KeyMap {
 			key.WithHelp("tab", "change focus"),
 		),
 		Details: key.NewBinding(
-			key.WithKeys("ctrl+d"),
-			key.WithHelp("ctrl+d", "toggle details"),
+			key.WithKeys("ctrl+shift+d"),
+			key.WithHelp("ctrl+shift+d", "toggle details"),
 		),
 		TogglePills: key.NewBinding(
 			key.WithKeys("ctrl+space"),

@@ -125,7 +125,7 @@ func (h *header) details(availWidth int) string {
 	formattedPercentage := s.Muted.Render(fmt.Sprintf("%d%%", int(percentage)))
 	parts = append(parts, formattedPercentage)
 
-	const keystroke = "ctrl+d"
+	const keystroke = "ctrl+shift+d"
 	if h.detailsOpen {
 		parts = append(parts, s.Muted.Render(keystroke)+s.Subtle.Render(" close"))
 	} else {

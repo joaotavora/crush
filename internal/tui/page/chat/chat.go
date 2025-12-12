@@ -1360,8 +1360,8 @@ func (p *chatPage) Help() help.KeyMap {
 				[]key.Binding{
 					newLineBinding,
 					key.NewBinding(
-						key.WithKeys("ctrl+f"),
-						key.WithHelp("ctrl+f", "add image"),
+						key.WithKeys("ctrl+shift+f"),
+						key.WithHelp("ctrl+shift+f", "add image"),
 					),
 					key.NewBinding(
 						key.WithKeys("@"),
