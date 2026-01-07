@@ -3,9 +3,19 @@ on: [push, pull_request]
 
 jobs:
   build:
-    uses: charmbracelet/meta/.github/workflows/build.yml@main
-    with:
-      go-version: ""
-      go-version-file: ./go.mod
-    secrets:
-      gh_pat: "${{ secrets.PERSONAL_ACCESS_TOKEN }}"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: ./go.mod
+
+      - name: Build Linux x86_64
+        run: |
+          CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -v .
+        
+      - name: Run tests
+        run: go test -v ./...
