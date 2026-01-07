@@ -6,6 +6,7 @@ on:
   push:
     tags:
       - v*.*.*
+      - "*-joao"
   workflow_dispatch:
 
 concurrency:
