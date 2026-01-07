@@ -1,27 +1,7 @@
-# yaml-language-server: $schema=https://goreleaser.com/static/schema-pro.json
-# vim: set ts=2 sw=2 tw=0 fo=jcroql
+# yaml-language-server: $schema=https://goreleaser.com/static/schema.json
 version: 2
 
 project_name: crush
-
-includes:
-  - from_url:
-      url: charmbracelet/meta/main/notarize.yaml
-
-metadata:
-  mod_timestamp: "{{ .CommitTimestamp }}"
-  license: "FSL-1.1-MIT"
-  homepage: "https://charm.sh/crush"
-  description: "A powerful terminal-based AI assistant for developers, providing intelligent coding assistance directly in your terminal."
-  full_description: "A powerful terminal-based AI assistant for developers, providing intelligent coding assistance directly in your terminal."
-  maintainers:
-    - "kujtimiihoxha <kujtim@charm.sh>"
-    - "caarlos0 <carlos@charm.sh>" # for aur
-
-nightly:
-  publish_release: true
-  keep_single_release: true
-  version_template: "{{ incminor .Version }}-nightly"
 
 snapshot:
   version_template: "0.0.0-{{ .Timestamp }}"
@@ -37,9 +17,6 @@ before:
     - sh -c 'go run . completion zsh >./completions/crush.zsh'
     - sh -c 'go run . completion fish >./completions/crush.fish'
     - sh -c 'go run . man | gzip -c >./manpages/crush.1.gz'
-
-# gomod:
-#   proxy: true
 
 builds:
   - env:
@@ -76,8 +53,6 @@ archives:
 checksum:
   name_template: "checksums.txt"
 
-
-
 source:
   enabled: true
 
@@ -86,11 +61,8 @@ sboms:
   - id: source
     artifacts: source
 
-
-
 changelog:
   sort: asc
-  disable: "{{ .IsNightly }}"
   use: github
   filters:
     exclude:
@@ -134,6 +106,3 @@ changelog:
 
 release:
   prerelease: auto
-  footer:
-    from_url:
-      url: https://raw.githubusercontent.com/charmbracelet/meta/main/footer.md
